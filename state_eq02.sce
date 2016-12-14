@@ -15,10 +15,10 @@ AqM = 1/Iyy
 ArL = Ixz/den
 ArN = Ixx/den
 
-K1 = 4.321*g
+K1 = 3.321*g
 K2 = 3.426*g
-K3 = 3.422*g
-K4 = 3.854*g
+K3 = 3.622*g
+K4 = 3.454*g
 
 KT1 = 0.06329
 KT2 = 0.04349
@@ -66,7 +66,7 @@ C=[ 0 0 0 1 0 0;
 D = zeros(6,4)
 
 // Contoroller Desigen
-Q=diag([1,1,0.1,1,1,0.1]);R=diag([1,1,1,1]);     //Usual notations x'Qx + u'Ru
+Q=diag([0.3,0.3,0.3,3,3,0.3]);R=diag([1,1,1,1]);     //Usual notations x'Qx + u'Ru
 Big=sysdiag(Q,R);    //Now we calculate C1 and D12
 [w,wp]=fullrf(Big);C1=wp(:,1:6);D12=wp(:,7:$);   //[C1,D12]'*[C1,D12]=Big
 P=syslin('c',A,B,C1,D12);    //The plant (continuous-time)
